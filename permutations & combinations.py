@@ -1,14 +1,14 @@
 ''' Permutations '''
 
 # # permutations using library function 
-# from itertools import permutations 
+from itertools import permutations 
   
-# # Get all permutations of [1, 2, 3] 
-# perm = permutations([1, 2, 3]) 
+# Get all permutations of [1, 2, 3] 
+perm = permutations([1, 2, 3]) 
  
-# # Print the obtained permutations 
-# for i in list(perm): 
-#     print (i) 
+# Print the obtained permutations 
+for i in list(perm): 
+    print (i) 
 
 
 # # permutations of given length 
