@@ -26,14 +26,30 @@ coordinates contains no duplicate point.
 
 
 
-def checkStraightLine(arr):
-    if len(arr) < 2: return True
-    for i in range(2, len(arr)):
-        y = arr[i][0] + 2
-        if y != arr[i][1]:
-            return False
-        else:
-            return True
+# def checkStraightLine(arr):
+#     if len(arr) < 2: return True
+#     for i in range(2, len(arr)):
+#         y = arr[i][0] + 2
+#         if y != arr[i][1]:
+#             return False
+#         else:
+#             return True
 
-arr = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
-print(checkStraightLine(arr))
+# arr = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
+
+
+# def checkStraightLine(arr):
+#     if len(arr) < 2: return True
+#     xDiff = arr[1][1] - arr[0][1]
+#     yDiff = arr[1][0] - arr[0][0]
+#     for i in range(2, len(arr) + 1):
+#         newXDiff = 
+
+print(702 // 26)
+
+
+
+
+
+
+# print(checkStraightLine(arr))

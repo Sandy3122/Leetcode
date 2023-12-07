@@ -41,4 +41,4 @@ def trailingZeroes(n):
     return ans
 
 
-print(trailingZeroes(3))
+print(trailingZeroes(10))
