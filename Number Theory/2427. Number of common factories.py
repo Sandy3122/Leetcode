@@ -22,23 +22,38 @@ Constraints:
 '''
 
 
-def commonFactors(n1, n2):
-    result = []
-    def factors(num):
-        for i in range(1, int(num ** 0.5) + 1):
-            if num % i == 0:
-                if num // i != i:
-                    # result.append(i)
-                    # result.append(num // i)
-                    result.extend([i, num // i])
-                else:
-                    result.append(i)
-        return result
+# First Approach
+
+# def commonFactors(n1, n2):
+#     result = []
+#     def factors(num):
+#         for i in range(1, int(num ** 0.5) + 1):
+#             if num % i == 0:
+#                 if num // i != i:
+#                     # result.append(i)
+#                     # result.append(num // i)
+#                     result.extend([i, num // i])
+#                 else:
+#                     result.append(i)
+#         return result
     
-    n1Factors = set(factors(n1))
-    n2Factors = set(factors(n2))
+#     n1Factors = set(factors(n1))
+#     n2Factors = set(factors(n2))
     
-    commonFactors = n1Factors.intersection(n2Factors)
-    return len(commonFactors)
+#     commonFactors = n1Factors.intersection(n2Factors)
+#     return len(commonFactors)
+
+# print(commonFactors(12, 6))
+
+
+
+# Best Approach
+
+def commonFactors(a,b):
+    count = 0
+    for i in range(1, min(a,b)+1):
+        if a%i == 0 and b%i == 0:
+            count += 1
+    return count
 
 print(commonFactors(12, 6))
