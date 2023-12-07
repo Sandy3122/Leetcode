@@ -22,36 +22,23 @@ Constraints:
 '''
 
 
-# def commonFactors(n1, n2):
-#     result = []
-#     def factors(num):
-#         for i in range(1, num+1):
-#             if num % i == 0:
-#                 result.append(i)
-#         return result
-#     n1Factors = factors(n1)
-#     n2Factors = factors(n2)
-#     count = 0
-#     for i in 
+def commonFactors(n1, n2):
+    result = []
+    def factors(num):
+        for i in range(1, int(num ** 0.5) + 1):
+            if num % i == 0:
+                if num // i != i:
+                    # result.append(i)
+                    # result.append(num // i)
+                    result.extend([i, num // i])
+                else:
+                    result.append(i)
+        return result
+    
+    n1Factors = set(factors(n1))
+    n2Factors = set(factors(n2))
+    
+    commonFactors = n1Factors.intersection(n2Factors)
+    return len(commonFactors)
 
-
-class Solution {
-    public int factorProduct(int N) {
-        final int m = (int) Math.pow(10,9) + 7;
-        long prdc = 1;
-        int sqrtN = (int) Math.sqrt(N);
-
-        for (int i = 1; i <= sqrtN; i++) {
-            if (N % i == 0) {
-                prdc = (prdc * i) % m;
-                if (N/i == i) {
-                    prdc = (prdc * i) % m;
-                }
-                else {
-                    prdc = (prdc * (N / i)) % m;
-                }
-            }
-        }
-        return (int) prdc;
-    }
-}
+print(commonFactors(12, 6))
