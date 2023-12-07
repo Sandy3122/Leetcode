@@ -39,3 +39,6 @@ def subtractProductAndSum(n):
     return product - sum
 
 print(subtractProductAndSum(114))
+
+
+# Time Complexity = len(n)

@@ -38,3 +38,6 @@ def minSum(num):
     return sum
 
 print(minSum(4009))
+
+
+# Time Complexity = nlog(n)
