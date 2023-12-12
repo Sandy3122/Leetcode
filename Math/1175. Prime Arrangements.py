@@ -82,5 +82,5 @@ def numPrimeArrangements(n):
     return (permutationsOfPrimes * permutationsOfNonPrimes) % (10 ** 9 +7)
 
 print(numPrimeArrangements(8))
-print(numPrimeArrangements(5))
+# print(numPrimeArrangements(5))
 
