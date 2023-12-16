@@ -40,4 +40,4 @@ def factorialNumbers(N):
         fact *= i
     return res
 
-print(factorialNumbers(3))
+print(factorialNumbers(1000))
