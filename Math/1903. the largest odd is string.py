@@ -39,5 +39,8 @@ def largestOddNumber(num):
             return num[:i+1]
     return ''
 
-n = '2466'    
-print(largestOddNumber(n))
+# n = '2366'    
+print(largestOddNumber('2466'))
+print(largestOddNumber('2367'))
+print(largestOddNumber('23476'))
+print(largestOddNumber('26896'))
