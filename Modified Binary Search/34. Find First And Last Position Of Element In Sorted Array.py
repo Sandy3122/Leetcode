@@ -126,28 +126,56 @@ nums is a non-decreasing array.
 
 '''Fourth Approach'''
 # Using Binary Search And One While Loop
-def searchRange(arr, target):
-    def binarySearch(arr, target, left_search):
-        left, right = 0, len(arr) - 1
-        result = -1
+# def searchRange(arr, target):
+#     def binarySearch(arr, target, left_search):
+#         left, right = 0, len(arr) - 1
+#         result = -1
+#         while left <= right:
+#             mid = left + (right - left)//2
+#             if arr[mid] == target:
+#                 result = mid
+#                 if left_search:
+#                     right = mid - 1
+#                 else:
+#                     left = mid + 1
+#             elif arr[mid] < target:
+#                 left = mid + 1
+#             else:
+#                 right = mid - 1
+#         return result
+    
+#     leftIndex = binarySearch(arr, target, True)
+#     rightIndex = binarySearch(arr, target, False)
+
+#     return [leftIndex, rightIndex]
+
+
+
+
+'''Fifth Approach'''
+# Using Binary Search
+# Using Two variable with on while loop
+def searchRange(nums, target):
+    def binarySearch(nums, target, leftMost):
+        left, right = 0, len(nums) - 1
+        leftIndex, rightIndex = -1, -1
         while left <= right:
-            mid = left + (right - left)//2
-            if arr[mid] == target:
-                result = mid
-                if left_search:
+            mid = (right + left) // 2
+            if nums[mid] == target:
+                if leftMost:
+                    rightIndex = mid
                     right = mid - 1
                 else:
+                    leftIndex = mid
                     left = mid + 1
-            elif arr[mid] < target:
+            elif nums[mid] < target:
                 left = mid + 1
             else:
                 right = mid - 1
-        return result
-    
-    leftIndex = binarySearch(arr, target, True)
-    rightIndex = binarySearch(arr, target, False)
+        return [leftIndex, rightIndex]
+    return binarySearch(nums, target, True)
 
-    return [leftIndex, rightIndex]
+
 
 
 arr1, target1 = [5,7,7,8,8,10], 6
