@@ -29,39 +29,36 @@ s and t consist of lowercase English letters.
 
 
 # Using HashMap - T.C = O(n+m) and S.C = O(m)
-def findTheDifference(s, t):
-    char_count = {}
-    # Count characters in string t
-    for char in t:
-        char_count[char] = char_count.get(char, 0) + 1
-    print(char_count.get(char, 0))
-    # Decrement count for characters in string s
-    for char in s:
-        char_count[char] -= 1
+# def findTheDifference(s, t):
+#     char_count = {}
+#     # Count characters in string t
+#     for char in t:
+#         char_count[char] = char_count.get(char, 0) + 1
+#     print(char_count.get(char, 0))
+#     # Decrement count for characters in string s
+#     for char in s:
+#         char_count[char] -= 1
         
-    # Find the character with count 1 in string t
-    for char, count in char_count.items():
-        if count == 1:
-            return char
-
-    
-
+#     # Find the character with count 1 in string t
+#     for char, count in char_count.items():
+#         if count == 1:
+#             return char
 
 
 
 
 # Using Sorting - T.C = O(n log n) and S.C = O(n)
-# def findTheDifference(s, t):
-#     sorted_s = sorted(s)
-#     sorted_t = sorted(t)
-#     # Base Case
-#     if not s:
-#         return sorted_t[0]
+def findTheDifference(s, t):
+    sorted_s = sorted(s)
+    sorted_t = sorted(t)
+    # Base Case
+    if not s:
+        return sorted_t[0]
     
-#     for i in range(len(s)):
-#         if sorted_s[i] != sorted_t[i]:
-#             return sorted_t[i]
-#     return sorted_t[-1]
+    for i in range(len(s)):
+        if sorted_s[i] != sorted_t[i]:
+            return sorted_t[i]
+    return sorted_t[-1]
 
 
 
@@ -77,12 +74,12 @@ def findTheDifference(s, t):
         
 
 
-def findTheDifference(s, t):
-    for i in t: #for element i in string t
-        if s.count(i) != t.count(i): #if the count of i in s is not the same as count of i in t
-            return i    #then that is the element that was added and we return that element
-            #for loop will iterate over each element, if the counts are the same then it will
-            #move on to the next element in i to compare with t
+# def findTheDifference(s, t):
+#     for i in t: #for element i in string t
+#         if s.count(i) != t.count(i): #if the count of i in s is not the same as count of i in t
+#             return i    #then that is the element that was added and we return that element
+#             #for loop will iterate over each element, if the counts are the same then it will
+#             #move on to the next element in i to compare with t
 
 
 

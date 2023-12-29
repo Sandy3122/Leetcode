@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Firebase Auth</title>
+</head>
+
+<body>
+
+    <form action="" id="mainForm" class="container text-center m-4">
+        <h2>Log In User</h2>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+            <label for="emailInput">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+            <label for="passwordInput">Password</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-2" style="float: right;">Log In</button>
+        <a href="register.html"><button type="button" class="btn btn-primary m-2" style="float: right;">Sign Up</button></a>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBwdLJ9jMwhxmNOwAX0cbvhrQ997XLYIoI",
+            authDomain: "userauth-6f6d7.firebaseapp.com",
+            projectId: "userauth-6f6d7",
+            storageBucket: "userauth-6f6d7.appspot.com",
+            messagingSenderId: "89948983430",
+            appId: "1:89948983430:web:c0c48d7d24313e5a420107",
+            measurementId: "G-Q2J1Z3SRDK"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+        const dbref = ref(db)
+
+        let MainForm = document.getElementById("mainForm");
+        let EmailInput = document.getElementById("emailInput");
+        let PasswordInput = document.getElementById("passwordInput");
+
+        let signInUser = e => {
+            e.preventDefault();
+
+            signInWithEmailAndPassword(auth, EmailInput.value, PasswordInput.value)
+                .then((userCredential) => {
+                    console.log(userCredential);
+                    console.log('Successfully signed in');
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.message);
+                });
+        };
+
+        MainForm.addEventListener('submit', signInUser);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, <span id="userName"></span>!</h1>
+    <img id="profileImage" alt="Profile Picture">
+    <p>Your Profile Content Goes Here.</p>
+    <script>
+        // Extract user data from the server response
+        var userData = ${userData};
+
+        // Update HTML with user information
+        document.getElementById("userName").textContent = userData.firstName + " " + userData.lastName;
+        
+        // Check if profilePic is available before updating
+        if (userData.profilePic) {
+            document.getElementById("profileImage").src = userData.profilePic;
+        }
+    </script>
+</body>
+</html>

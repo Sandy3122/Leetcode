@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Splash Screen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #CF2D6E;
+            /* Set your desired background color */
+            overflow: hidden;
+            /* Hide overflow during animation */
+            transition: background-color 1s ease;
+        }
+
+    
+        #splash-container {
+            text-align: center;
+            animation: closeAnimation 4s ease-out forwards;
+            /* Animation duration and easing function */
+        }
+
+        #splash-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #main-content {
+            display: none;
+            text-align: center;
+        }
+
+        /* @keyframes closeAnimation {
+            0% {
+                transform: translateY(0%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        } */
+
+
+        @keyframes closeAnimation {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(0.5) rotate(360deg);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1) rotate(360deg);
+                opacity: 0.8;
+                /* Optionally fade out the image */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="splash-container">
+        <img id="splash-image" src="/B1.jpg" alt="Splash Image">
+    </div>
+
+    <div id="main-content">
+        <!-- Your main content goes here -->
+        <h1>Welcome to the Main Content!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio soluta laboriosam amet eligendi excepturi
+            eveniet! Aperiam reprehenderit, delectus nemo atque, perspiciatis quidem corporis hic accusamus cum velit at
+            mollitia a.</p>
+    </div>
+
+    <script>
+        // Wait for a certain amount of time (e.g., 3 seconds) and then show the main content
+        setTimeout(function () {
+            document.getElementById('splash-container').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.body.style.backgroundColor = '#e0e0e0';
+        }, 4000);
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flash Screen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #flashscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('B1.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 9999;
+            animation: fadeout 3s ease-out forwards;
+        }
+
+        @keyframes fadeout {
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flashscreen"></div>
+</body>
+
+</html> -->
