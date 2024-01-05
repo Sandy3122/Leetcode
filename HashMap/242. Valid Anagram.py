@@ -56,6 +56,9 @@ s and t consist of lowercase English letters.
 #         # If character is not present in hashedT then add it with value 1
 #         hashedT[char] = hashedT.get(char, 0) + 1
 
+#     print(hashedS)
+#     print(hashedT )
+
 #     return hashedS == hashedT
 # print(isAnagram("cat", "rat"))
 
@@ -72,8 +75,8 @@ def isAnagram(s, t):
         counter_s[char] -= count
     # print(counter_t.items())    # dict_items([('a', 1), ('c', 1), ('t', 1)])
     # print(counter_t.values())   # dict_values([1, 1, 1])
-    # print(counter_s)
-    # print(counter_t)
+    print(counter_s)
+    print(counter_t)
     
     # return not any(counter_s.values())
     return all(value == 0 for value in counter_s.values())
