@@ -45,5 +45,5 @@ def CheckPalindrome(s,i, j):
     return True
 
 
-s= "abca"
+s= "acbca"
 print(validPalindrome(s))

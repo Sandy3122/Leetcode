@@ -63,15 +63,11 @@ def isValid(s):
             top = stack.pop()
             # print("top:", top)
 
-
              # Check if the current closing bracket matches the corresponding opening bracket
             if (i == ")" and top != "(") or (i == "}" and top != "{") or (i == "]" and top != "["):
                 return False
 
-     
     return not stack
-            
-    
 
 res = isValid(s)
-print(res)   
+print(res)
